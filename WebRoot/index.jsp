@@ -34,7 +34,7 @@
 <body>
 
 		<form action="Index.action" method="post">
-		<input type="submit" value="登陆">
+		<input type="submit" value="开始登陆">
 	</form>
 </body>
 </html>
