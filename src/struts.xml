@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="mypackage" extends="struts-default" namespace="/">
+	
+		<action name="CheckCodeAction" class="com.great.action.CheckCodeAction">
+			<result type="stream" name="success">checkIS</result>
+		</action>	
+		
+		<action name="Index" class="com.great.action.IndexAction">
+			<result name="success">/WEB-INF/login.jsp</result>
+			
+		</action>
+		
+			<action name="LoginAction" class="com.great.action.LoginAction">
+			<!-- <result name="success">/WEB-INF/StaffShow.jsp</result> -->
+			<result type="redirectAction" name="success">
+				<param name="namespace">/</param>
+				<param name="actionName">ShowAction</param>
+			
+			</result>
+			<result name="input">/index.jsp</result>
+		</action>
+		
+		
+		<action name="SelectAction" class="com.great.action.SelectAction">
+			<result name="sucess">/WEB-INF/insert.jsp</result>
+			<result name="update">/WEB-INF/update.jsp</result>
+						<result name="del" type="redirectAction">
+				<param name="namespace">/</param>
+				<param name="actionName">ShowAction</param>
+			</result>
+		</action>
+
+		<action name="InsertAction" class="com.great.action.InsertAction">
+			<result name="sucess" type="redirectAction">
+
+
+				<param name="namespace">/</param>
+				<param name="actionName">ShowAction</param>
+			</result>
+			<result name="input" type="redirectAction">
+
+
+				<param name="namespace">/</param>
+				<param name="actionName">InsertAction</param>
+			</result>
+		</action>
+		
+		
+		
+		<action name="ShowAction" class="com.great.action.ShowAction">
+			<result name="sucess">/WEB-INF/show.jsp</result>
+	
+		</action>
+		
+			
+
+			
+		
+		
+				<action name="ChangeAction" class="com.great.action.ChangeAction">
+			<result name="sucess" type="redirectAction">
+				<param name="namespace">/</param>
+				<param name="actionName">ShowAction</param>
+			</result>
+
+				</action>
+		
+	</package>
+	
+	
+	
+	
+	
+	<package name="jsonPackage" extends="json-default" namespace="/">
+		<action name="StaffAjax" class="com.great.action.ShowAction">
+			<result type="json" name="exist">
+				<param name="root">emp</param>
+			</result>
+		</action>	
+	</package>
+</struts>      
